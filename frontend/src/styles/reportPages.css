@@ -1,0 +1,192 @@
+/* Shared styles for the revenue, check-in/staff and my-tickets pages.
+   Everything uses the --tb-* theme variables so it matches the other pages. */
+
+.rp-wrap { padding: 28px 0 60px; }
+
+.rp-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 12px;
+  margin-bottom: 18px;
+  padding: 14px 16px;
+  border: 1px solid var(--tb-border);
+  border-radius: 12px;
+  background: var(--tb-surface);
+}
+
+.rp-toolbar .ow-field { min-width: 150px; }
+.rp-toolbar-spacer { flex: 1; }
+
+.rp-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 14px;
+  margin-bottom: 22px;
+}
+
+.rp-section { margin-bottom: 28px; }
+.rp-section h2 { margin: 0 0 10px; font-size: 17px; color: var(--tb-text); }
+
+.rp-bar-cell { min-width: 140px; }
+.rp-bar {
+  height: 8px;
+  border-radius: 999px;
+  background: var(--tb-gradient);
+  min-width: 2px;
+}
+.rp-bar-track {
+  border-radius: 999px;
+  background: var(--tb-surface-2);
+}
+
+.rp-num { text-align: right; font-variant-numeric: tabular-nums; }
+.rp-negative { color: #b91c1c; font-weight: 600; }
+
+.rp-toast {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 60;
+  max-width: 360px;
+  padding: 12px 16px;
+  border-radius: 10px;
+  border: 1px solid var(--tb-border);
+  background: var(--tb-surface-2);
+  color: var(--tb-text);
+  font-size: 13.5px;
+  box-shadow: 0 10px 30px rgba(80,50,120,0.22);
+}
+.rp-toast-error { border-color: #fca5a5; background: #fef2f2; color: #b91c1c; font-weight: 600; }
+.rp-toast-ok { border-color: #a7f3d0; background: #ecfdf5; color: #047857; font-weight: 600; }
+
+.rp-tabs { display: flex; gap: 8px; margin-bottom: 18px; }
+.rp-tab {
+  padding: 8px 16px;
+  border: 1.5px solid var(--tb-border);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--tb-text-muted);
+  font-weight: 700;
+  cursor: pointer;
+}
+.rp-tab.is-active { border-color: var(--tb-primary-2); color: var(--tb-text); background: var(--tb-primary-light); }
+
+.rp-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  background: rgba(28,18,52,0.5);
+}
+.rp-modal {
+  width: min(480px, 100%);
+  max-height: 90vh;
+  overflow: auto;
+  padding: 22px;
+  border: 1px solid var(--tb-border);
+  border-radius: 14px;
+  background: var(--tb-surface);
+  color: var(--tb-text);
+}
+.rp-modal h3 { margin: 0 0 6px; }
+.rp-modal-actions { display: flex; justify-content: flex-end; gap: 10px; margin-top: 16px; }
+.rp-counter { font-size: 12px; color: var(--tb-text-muted); text-align: right; }
+
+.rp-badge {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 11.5px;
+  font-weight: 700;
+  background: var(--tb-surface-2);
+  color: var(--tb-text-muted);
+}
+.rp-badge-active { background: #ecfdf5; color: #047857; border: 1px solid #a7f3d0; }
+.rp-badge-pending { background: #fefce8; color: #854d0e; border: 1px solid #fef08a; }
+.rp-badge-bad { background: #fef2f2; color: #b91c1c; border: 1px solid #fecaca; }
+
+.rp-ticket-list { display: grid; gap: 12px; }
+.rp-ticket {
+  display: grid;
+  grid-template-columns: 84px 1fr auto;
+  gap: 14px;
+  align-items: center;
+  padding: 14px;
+  border: 1px solid var(--tb-border);
+  border-radius: 12px;
+  background: var(--tb-surface);
+}
+.rp-ticket-poster {
+  width: 84px;
+  height: 84px;
+  border-radius: 10px;
+  object-fit: cover;
+  background: var(--tb-surface-2);
+}
+.rp-ticket h3 { margin: 0 0 4px; font-size: 15px; }
+.rp-muted { color: var(--tb-text-muted); font-size: 12.5px; }
+.rp-ticket-actions { display: flex; flex-direction: column; gap: 8px; align-items: flex-end; }
+
+.rp-progress { height: 10px; border-radius: 999px; background: var(--tb-surface-2); overflow: hidden; }
+.rp-progress > span { display: block; height: 100%; background: var(--tb-gradient); }
+
+.rp-staff-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+
+/* Modern Select Dropdown Styling */
+.rp-section select,
+.od-section-head select,
+.modern-select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-color: #ffffff;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%237e22ce' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  background-size: 14px 14px;
+  border: 1.5px solid #d8b4fe;
+  border-radius: 10px;
+  padding: 8px 38px 8px 14px;
+  font-family: inherit;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #1e1b2e;
+  box-shadow: 0 2px 6px -2px rgba(126, 34, 206, 0.12);
+  transition: all 0.2s ease;
+  cursor: pointer;
+  outline: none;
+}
+
+.rp-section select:hover,
+.od-section-head select:hover,
+.modern-select:hover {
+  border-color: #9333ea;
+  box-shadow: 0 4px 12px -2px rgba(126, 34, 206, 0.22);
+}
+
+.rp-section select:focus,
+.od-section-head select:focus,
+.modern-select:focus {
+  border-color: #7e22ce;
+  box-shadow: 0 0 0 3px rgba(147, 51, 234, 0.18);
+}
+
+.rp-section select option,
+.od-section-head select option,
+.modern-select option {
+  background-color: #ffffff;
+  color: #1e1b2e;
+  padding: 10px;
+  font-weight: 500;
+}
+
+@media (max-width: 760px) {
+  .rp-ticket { grid-template-columns: 64px 1fr; }
+  .rp-ticket-poster { width: 64px; height: 64px; }
+  .rp-ticket-actions { grid-column: 1 / -1; flex-direction: row; justify-content: flex-end; }
+  .rp-staff-grid { grid-template-columns: 1fr; }
+}
